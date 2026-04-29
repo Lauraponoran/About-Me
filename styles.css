@@ -289,17 +289,17 @@ a {
 
 .photo-placeholder {
   width: 500px;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1;  
+  overflow: hidden;       
   border-radius: 1rem;
-  overflow: hidden;
 }
 
 .photo-placeholder img {
   width: 100%;
-  height: 100%;
+  height: 100%;           
   object-fit: cover;
   display: block;
-  object-position: center 50%; /* moves crop point up */
+  object-position: center 30%;
 }
 
 .photo-icon  { font-size: 4rem; display: block; margin-bottom: 0.75rem; }
