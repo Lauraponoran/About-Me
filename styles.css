@@ -343,15 +343,23 @@ a {
   margin-bottom: 4rem;
 }
 
+@media (max-width: 1023px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 639px)  { .projects-grid { grid-template-columns: 1fr; } }
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1fr;   /* all rows same height */
   gap: 2rem;
+  align-items: stretch;   /* replace grid-auto-rows: 1fr */
 }
 
-@media (max-width: 1023px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 639px)  { .projects-grid { grid-template-columns: 1fr; } }
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 .project-card {
   border-radius: 1rem;
@@ -360,25 +368,13 @@ a {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
-}
-
-.project-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: flex;        /* was block */
-  flex-direction: column;
-  height: 100%;
+  flex: 1;               /* fill the link wrapper's height */
 }
 
 .project-thumb {
-  aspect-ratio: 4 / 3;
+  height: 260px;         /* fixed thumb height instead of aspect-ratio */
   overflow: hidden;
-  flex-shrink: 0;       /* prevents thumb from squishing */
-}
-
-.project-body {
-  padding: 1.5rem;
-  flex: 1;              /* fills remaining card height */
+  flex-shrink: 0;
 }
 
 .project-thumb img {
@@ -386,6 +382,11 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.project-body {
+  padding: 1.5rem;
+  flex: 1;
 }
 
 .thumb-1 { background: linear-gradient(135deg, #6b0f1a, #9e2a2b); }
