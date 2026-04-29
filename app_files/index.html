@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!-- saved from url=(0311)https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5 -->
+<html lang="en" class="h-full"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <script src="./3.4.17"></script>
+  <script src="./lucide.min.js"></script>
+  <script src="./element_sdk.js"></script>
+  <link href="./css2" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .project-card { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #e09f3e; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .hero-pattern { background-image: radial-gradient(circle at 20% 50%, rgba(201,203,163,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(213,122,102,0.08) 0%, transparent 50%), radial-gradient(circle at 60% 80%, rgba(95,99,79,0.08) 0%, transparent 50%); }
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    .slide-in { animation: slideIn 0.8s ease forwards; opacity: 0; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="./data_sdk.js" type="text/javascript"></script>
+ <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.-bottom-4{bottom:-1rem}.-right-4{right:-1rem}.left-0{left:0px}.right-0{right:0px}.top-0{top:0px}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:0.25rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/3\]{aspect-ratio:4/3}.aspect-square{aspect-ratio:1 / 1}.h-full{height:100%}.h-24{height:6rem}.min-h-screen{min-height:100vh}.w-24{width:6rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-lg{max-width:32rem}.max-w-xl{max-width:36rem}.resize-none{resize:none}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border-0{border-width:0px}.border-2{border-width:2px}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-4{padding-bottom:1rem}.pt-2{padding-top:0.5rem}.pt-20{padding-top:5rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.02\]:hover{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:opacity-80:hover{opacity:0.8}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-7xl{font-size:4.5rem;line-height:1}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:text-8xl{font-size:6rem;line-height:1}}</style></head>
+ <body class="h-full" data-new-gr-c-s-check-loaded="14.1287.0" data-gr-ext-installed="">
+  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background-color: rgb(255, 225, 168); color: rgb(51, 92, 103); font-family: &quot;DM Sans&quot;, sans-serif; font-size: 16px;"><!-- Nav -->
+   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(255,225,168,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(95,99,79,0.1);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"><a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#hero" id="nav-name" class="text-xl font-bold" style="font-family: &#39;Playfair Display&#39;, serif; color: #6b0f1a;">Portfolio</a>
+     <div class="hidden md:flex gap-8"><a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#hero" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Home</a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#about" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">About</a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#projects" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Projects</a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#contact" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Contact</a>
+     </div><button id="mobile-menu-btn" class="md:hidden" onclick="document.getElementById(&#39;mobile-menu&#39;).classList.toggle(&#39;hidden&#39;)"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" style="color: #5f634f; width:24px; height:24px;" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg> </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3"><a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#hero" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById(&#39;mobile-menu&#39;).classList.add(&#39;hidden&#39;)">Home</a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#about" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById(&#39;mobile-menu&#39;).classList.add(&#39;hidden&#39;)">About</a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#projects" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById(&#39;mobile-menu&#39;).classList.add(&#39;hidden&#39;)">Projects</a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#contact" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById(&#39;mobile-menu&#39;).classList.add(&#39;hidden&#39;)">Contact</a>
+    </div>
+   </nav><!-- Hero -->
+   <section id="hero" class="hero-pattern min-h-screen flex items-center justify-center px-6 pt-20" style="background-color: #ffe1a8;">
+    <div class="max-w-4xl mx-auto text-center">
+     <div class="slide-in stagger-1 mb-4"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase" style="background: rgba(95,99,79,0.1); color: #5f634f;">Welcome</span>
+     </div>
+     <h1 id="hero-name" class="slide-in stagger-2 text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-6" style="font-family: &quot;Playfair Display&quot;, serif; color: rgb(84, 11, 14); font-size: 64px;">Alexandra<br>Monroe</h1>
+     <p id="hero-tagline" class="slide-in stagger-3 text-lg sm:text-xl max-w-xl mx-auto mb-10" style="color: #5f634f; opacity: 0.8;">Designer &amp; Creative Director crafting thoughtful digital experiences</p>
+     <div class="slide-in stagger-4 flex flex-wrap gap-4 justify-center"><a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#projects" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105" style="background: #6b0f1a; color: #ffe1a8;"> View Work <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-down" style="width:16px; height:16px;" class="lucide lucide-arrow-down"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg> </a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#contact" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold border-2 transition-all duration-300 hover:scale-105" style="border-color: #5f634f; color: #5f634f;"> Get in Touch </a> <button id="download-cv-btn" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105" style="background: #d57a66; color: #ffe1a8;"> Download CV <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="download" style="width:16px; height:16px;" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg> </button>
+     </div>
+    </div>
+   </section><!-- About -->
+   <section id="about" class="py-24 px-6" style="background-color: #5f634f;">
+    <div class="max-w-5xl mx-auto">
+     <div class="fade-up grid md:grid-cols-2 gap-16 items-center">
+      <div><span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4" style="background: rgba(255,225,168,0.15); color: #d57a66;">About</span>
+       <h2 id="about-heading" class="text-4xl sm:text-5xl font-bold mb-6" style="font-family: &quot;Playfair Display&quot;, serif; color: rgb(255, 225, 168); font-size: 40px;">About Me</h2>
+       <p id="about-text" class="text-base leading-relaxed mb-6" style="color: rgba(255,225,168,0.8);">I'm a multidisciplinary designer with over 8 years of experience creating brands, digital products, and visual stories. I believe great design lives at the intersection of beauty and function — where every pixel has purpose and every interaction feels natural.</p>
+       <div class="flex flex-wrap gap-3"><span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">UI/UX Design</span> <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Branding</span> <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Creative Direction</span> <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Typography</span>
+       </div>
+      </div>
+      <div class="relative">
+       <div class="aspect-square rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(213,122,102,0.3), rgba(201,203,163,0.2));">
+        <div class="text-center p-8">
+         <div class="text-6xl mb-4">
+          ✦
+         </div>
+         <p class="text-sm font-medium" style="color: #ffe1a8; opacity: 0.7;">Your photo here</p>
+        </div>
+       </div>
+       <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-xl flex items-center justify-center" style="background: #d57a66;"><span class="text-2xl font-bold" style="color: #ffe1a8; font-family: &#39;Playfair Display&#39;, serif;">8+</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Projects -->
+   <section id="projects" class="py-24 px-6" style="background-color: #ffe1a8;">
+    <div class="max-w-6xl mx-auto">
+     <div class="fade-up text-center mb-16"><span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4" style="background: rgba(95,99,79,0.1); color: #5f634f;">Portfolio</span>
+      <h2 id="projects-heading" class="text-4xl sm:text-5xl font-bold" style="font-family: &quot;Playfair Display&quot;, serif; color: rgb(84, 11, 14); font-size: 40px;">Selected Work</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
+       <div class="aspect-[4/3] flex items-center justify-center" style="background: linear-gradient(135deg, #6b0f1a, #9e2a2b);"><span class="text-5xl">◆</span>
+       </div>
+       <div class="p-6"><span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">Branding</span>
+        <h3 class="text-lg font-bold mt-1 mb-2" style="color: #ffe1a8; font-family: &#39;Playfair Display&#39;, serif;">Lumina Studio</h3>
+        <p class="text-sm" style="color: rgba(255,225,168,0.6);">Brand identity for a creative photography studio</p>
+       </div>
+      </div>
+      <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
+       <div class="aspect-[4/3] flex items-center justify-center" style="background: linear-gradient(135deg, #d57a66, #ffe1a8);"><span class="text-5xl" style="color: #6b0f1a;">▲</span>
+       </div>
+       <div class="p-6"><span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">Web Design</span>
+        <h3 class="text-lg font-bold mt-1 mb-2" style="color: #ffe1a8; font-family: &#39;Playfair Display&#39;, serif;">Apex Digital</h3>
+        <p class="text-sm" style="color: rgba(255,225,168,0.6);">Marketing website for a tech startup</p>
+       </div>
+      </div>
+      <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
+       <div class="aspect-[4/3] flex items-center justify-center" style="background: linear-gradient(135deg, #5f634f, #6b0f1a);"><span class="text-5xl" style="color: #d57a66;">●</span>
+       </div>
+       <div class="p-6"><span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">App Design</span>
+        <h3 class="text-lg font-bold mt-1 mb-2" style="color: #ffe1a8; font-family: &#39;Playfair Display&#39;, serif;">Mindful</h3>
+        <p class="text-sm" style="color: rgba(255,225,168,0.6);">Meditation app with a focus on simplicity</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact -->
+   <section id="contact" class="py-24 px-6" style="background-color: rgb(84, 11, 14);">
+    <div class="max-w-3xl mx-auto text-center">
+     <div class="fade-up"><span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4" style="background: rgba(224,159,62,0.2); color: #e09f3e;">Contact</span>
+      <h2 id="contact-heading" class="text-4xl sm:text-5xl font-bold mb-4" style="font-family: &quot;Playfair Display&quot;, serif; color: rgb(255, 225, 168); font-size: 40px;">Let's Work Together</h2>
+      <p id="contact-text" class="text-base mb-12" style="color: rgba(255,243,176,0.7);">Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing.</p>
+      <form id="contact-form" class="text-left space-y-5 max-w-lg mx-auto">
+       <div><label for="name" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Name</label> <input id="name" type="text" placeholder="Your name" class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm" style="background: rgba(255,243,176,0.1); color: #fff3b0;" onfocus="this.style.boxShadow=&#39;0 0 0 2px #e09f3e&#39;" onblur="this.style.boxShadow=&#39;none&#39;">
+       </div>
+       <div><label for="email" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Email</label> <input id="email" type="email" placeholder="your@email.com" class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm" style="background: rgba(255,243,176,0.1); color: #fff3b0;" onfocus="this.style.boxShadow=&#39;0 0 0 2px #e09f3e&#39;" onblur="this.style.boxShadow=&#39;none&#39;">
+       </div>
+       <div><label for="message" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Message</label> <textarea id="message" rows="4" placeholder="Tell me about your project..." class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm resize-none" style="background: rgba(255,243,176,0.1); color: #fff3b0;" onfocus="this.style.boxShadow=&#39;0 0 0 2px #e09f3e&#39;" onblur="this.style.boxShadow=&#39;none&#39;"></textarea>
+       </div><button type="submit" class="w-full py-4 rounded-xl text-sm font-bold tracking-wide uppercase transition-all duration-300 hover:scale-[1.02]" style="background: rgb(213, 122, 102); color: rgb(84, 11, 14);"> Send Message </button>
+       <p id="form-success" class="hidden text-center text-sm font-medium pt-2" style="color: #e09f3e;">✓ Message sent! I'll get back to you soon.</p>
+      </form>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-8 px-6 text-center" style="background: #540b0e; border-top: 1px solid rgba(224,159,62,0.15);">
+    <div class="flex justify-center gap-6 mb-4"><a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="twitter" style="width:20px; height:20px;" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="linkedin" style="width:20px; height:20px;" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="instagram" style="width:20px; height:20px;" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a> <a href="https://c7j4csr8c2tjr4zf.canvacode.com/codelet/eyJhbGciOiJIUzI1NiJ9.eyJjIjoiYzdqNGNzcjhjMnRqcjR6ZiIsImV4cCI6MTc3NzQ4NDgxMSwiZGVwIjoiQVNTSVNUQU5UX1RIUkVBRF9DT0RFTEVUI2E3ZGYyZDEyLWEzMzEtNDJhMi04MDg4LTVlOTU5YjM3NDM2ZiJ9.jGZy1snkkd6O5jpYDfgWm-mr-5GVPSC794HCkPsuSNk/index.html?pin_id=4a7a0f61e6ddcfbf12e9c6d2a0e6dab5#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="github" style="width:20px; height:20px;" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
+    </div>
+    <p class="text-xs" style="color: rgba(255,243,176,0.4);">© 2024 Alexandra Monroe. All rights reserved.</p>
+   </footer>
+  </div>
+  <script>
+  const defaultConfig = {
+    background_color: '#ffe1a8',
+    surface_color: '#5f634f',
+    text_color: '#ffe1a8',
+    primary_action_color: '#6b0f1a',
+    secondary_action_color: '#d57a66',
+    font_family: 'Playfair Display',
+    font_size: 16,
+    hero_name: 'Alexandra\nMonroe',
+    hero_tagline: 'Designer & Creative Director crafting thoughtful digital experiences',
+    about_heading: 'About Me',
+    about_text: "I'm a multidisciplinary designer with over 8 years of experience creating brands, digital products, and visual stories. I believe great design lives at the intersection of beauty and function — where every pixel has purpose and every interaction feels natural.",
+    projects_heading: 'Selected Work',
+    contact_heading: "Let's Work Together",
+    contact_text: "Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing."
+  };
+
+  function applyConfig(config) {
+    const c = key => config[key] || defaultConfig[key];
+    const bg = c('background_color');
+    const surface = c('surface_color');
+    const text = c('text_color');
+    const primary = c('primary_action_color');
+    const secondary = c('secondary_action_color');
+    const font = c('font_family');
+    const baseSize = c('font_size');
+
+    // Background colors
+    document.getElementById('app-wrapper').style.backgroundColor = bg;
+    document.getElementById('hero').style.backgroundColor = bg;
+    document.getElementById('projects').style.backgroundColor = bg;
+
+    // Surface sections
+    document.getElementById('about').style.backgroundColor = surface;
+
+    // Dark sections
+    document.getElementById('contact').style.backgroundColor = '#540b0e';
+
+    // Nav
+    const nav = document.getElementById('main-nav');
+    nav.style.background = bg + 'f2';
+
+    // Hero text
+    const heroNameEl = document.getElementById('hero-name');
+    const nameText = c('hero_name');
+    heroNameEl.innerHTML = nameText.replace(/\n/g, '<br>');
+    heroNameEl.style.color = '#540b0e';
+    heroNameEl.style.fontFamily = `${font}, serif`;
+    heroNameEl.style.fontSize = `${baseSize * 4}px`;
+
+    document.getElementById('hero-tagline').textContent = c('hero_tagline');
+    document.getElementById('hero-tagline').style.color = surface;
+
+    // About
+    const aboutH = document.getElementById('about-heading');
+    aboutH.textContent = c('about_heading');
+    aboutH.style.color = text;
+    aboutH.style.fontFamily = `${font}, serif`;
+    aboutH.style.fontSize = `${baseSize * 2.5}px`;
+
+    document.getElementById('about-text').textContent = c('about_text');
+    document.getElementById('about-text').style.color = `${text}cc`;
+
+    // Projects
+    const projH = document.getElementById('projects-heading');
+    projH.textContent = c('projects_heading');
+    projH.style.color = '#540b0e';
+    projH.style.fontFamily = `${font}, serif`;
+    projH.style.fontSize = `${baseSize * 2.5}px`;
+
+    // Contact
+    const contH = document.getElementById('contact-heading');
+    contH.textContent = c('contact_heading');
+    contH.style.color = text;
+    contH.style.fontFamily = `${font}, serif`;
+    contH.style.fontSize = `${baseSize * 2.5}px`;
+
+    document.getElementById('contact-text').textContent = c('contact_text');
+
+    // Primary action buttons
+    document.querySelectorAll('[href="#projects"]').forEach(el => {
+      if (el.closest('#hero')) { el.style.backgroundColor = primary; el.style.color = bg; }
+    });
+
+    // Secondary action
+    const submitBtn = document.querySelector('#contact-form button');
+    if (submitBtn) { submitBtn.style.backgroundColor = secondary; submitBtn.style.color = '#540b0e'; }
+
+    // Nav name
+    document.getElementById('nav-name').style.fontFamily = `${font}, serif`;
+
+    // Body font
+    document.getElementById('app-wrapper').style.fontFamily = `'DM Sans', sans-serif`;
+    document.getElementById('app-wrapper').style.fontSize = `${baseSize}px`;
+  }
+
+  // Element SDK
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange: async (config) => applyConfig(config),
+    mapToCapabilities: (config) => ({
+      recolorables: [
+        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+        { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+      ],
+      borderables: [],
+      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+    }),
+    mapToEditPanelValues: (config) => new Map([
+      ['hero_name', config.hero_name || defaultConfig.hero_name],
+      ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
+      ['about_heading', config.about_heading || defaultConfig.about_heading],
+      ['about_text', config.about_text || defaultConfig.about_text],
+      ['projects_heading', config.projects_heading || defaultConfig.projects_heading],
+      ['contact_heading', config.contact_heading || defaultConfig.contact_heading],
+      ['contact_text', config.contact_text || defaultConfig.contact_text]
+    ])
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Form
+  document.getElementById('contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('form-success').classList.remove('hidden');
+    e.target.reset();
+    setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 4000);
+  });
+
+  lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f3c0256d3db66fc',t:'MTc3NzQ0MTYxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; visibility: hidden;" src="./saved_resource.html"></iframe>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;limited&quot;,&quot;isActive&quot;:false,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
