@@ -298,7 +298,8 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block; /* removes the small gap below inline images */
+  display: block;
+  object-position: center 30%; /* moves crop point up */
 }
 
 .photo-icon  { font-size: 4rem; display: block; margin-bottom: 0.75rem; }
