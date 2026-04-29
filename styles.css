@@ -288,9 +288,10 @@ a {
 }
 
 .photo-placeholder {
+  width: 200px;          
   aspect-ratio: 1 / 1;
   border-radius: 1rem;
-  background: linear-gradient(135deg, rgba(213, 122, 102, 0.3), rgba(201, 203, 163, 0.2));
+  overflow: hidden;      
   display: flex;
   align-items: center;
   justify-content: center;
