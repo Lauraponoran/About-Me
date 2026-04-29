@@ -299,7 +299,7 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
-  object-position: center 30%; /* moves crop point up */
+  object-position: center 50%; /* moves crop point up */
 }
 
 .photo-icon  { font-size: 4rem; display: block; margin-bottom: 0.75rem; }
