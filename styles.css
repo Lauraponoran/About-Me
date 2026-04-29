@@ -287,16 +287,18 @@ a {
   position: relative;
 }
 
+/* FIXED: width 100% instead of fixed 500px so it fits the grid column */
 .photo-placeholder {
-  width: 500px;
-  aspect-ratio: 1 / 1;  
-  overflow: hidden;       
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   border-radius: 1rem;
 }
 
+/* FIXED: img fills the container and crops correctly */
 .photo-placeholder img {
   width: 100%;
-  height: 100%;           
+  height: 100%;
   object-fit: cover;
   display: block;
   object-position: center 30%;
@@ -363,17 +365,22 @@ a {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.project-thumb {
-  aspect-ratio: 4 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-}
-
 .project-card-link {
   text-decoration: none;
   color: inherit;
+  display: block;
+}
+
+.project-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+/* FIXED: images fill the thumb container correctly */
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 

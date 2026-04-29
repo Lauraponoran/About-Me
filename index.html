@@ -125,6 +125,7 @@
             <div class="project-card fade-up">
               <div class="project-thumb thumb-1">
                 <img src="images/reflector_ride_maps.png" alt="Project thumbnail">
+              </div>
               <div class="project-body">
                 <p class="project-category">TAPP</p>
                 <h3 class="project-title">Reflector Ride Maps</h3>
@@ -133,16 +134,18 @@
             </div>
           </a>
 
-          <div class="project-card fade-up">
-            <div class="project-thumb thumb-2">
-              <img src="images/alliander_insulation_explorer.png" alt="Project thumbnail">
+          <a href="https://insulateamsterdam.eu.pythonanywhere.com/" class="project-card-link">
+            <div class="project-card fade-up">
+              <div class="project-thumb thumb-2">
+                <img src="images/alliander_insulation_explorer.png" alt="Project thumbnail">
+              </div>
+              <div class="project-body">
+                <p class="project-category">Web Design</p>
+                <h3 class="project-title">Alliander Insulation Explorer</h3>
+                <p class="project-desc">Raising awareness about the importance of retrofitting historic buildings in Amsterdam with insulation to reduce the strain on the energy grid</p>
+              </div>
             </div>
-            <div class="project-body">
-              <p class="project-category">Web Design</p>
-              <h3 class="project-title">Alliander Insulation Explorer</h3>
-              <p class="project-desc">Raising awareness about the importance of retrofitting historic buildings in Amsterdam with insulation to reduce the strain on the energy grid</p>
-            </div>
-          </div>
+          </a>
 
           <div class="project-card fade-up">
             <div class="project-thumb thumb-3">
@@ -169,18 +172,18 @@
           Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing.
         </p>
 
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mgorgrdy" method="POST">
           <div class="form-group">
             <label for="name" class="form-label">Name</label>
-            <input id="name" type="text" placeholder="Your name" class="form-input">
+            <input id="name" type="text" placeholder="Your name" class="form-input" name="name">
           </div>
           <div class="form-group">
             <label for="email" class="form-label">Email</label>
-            <input id="email" type="email" placeholder="your@email.com" class="form-input">
+            <input id="email" type="email" placeholder="your@email.com" class="form-input" name="email">
           </div>
           <div class="form-group">
             <label for="message" class="form-label">Message</label>
-            <textarea id="message" placeholder="Tell me about your project..." class="form-textarea"></textarea>
+            <textarea id="message" placeholder="Tell me about your project..." class="form-textarea" name="message"></textarea>
           </div>
           <button type="submit" class="btn-submit">Send Message</button>
           <p class="form-success" id="form-success">✓ Message sent! I'll get back to you soon.</p>
