@@ -370,6 +370,12 @@ a {
   font-size: 3rem;
 }
 
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .thumb-1 { background: linear-gradient(135deg, #6b0f1a, #9e2a2b); }
 .thumb-2 { background: linear-gradient(135deg, #d57a66, #ffe1a8); color: var(--dark); }
 .thumb-3 { background: linear-gradient(135deg, #5f634f, #6b0f1a); color: var(--accent); }
