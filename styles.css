@@ -288,19 +288,17 @@ a {
 }
 
 .photo-placeholder {
-  width: 500px;          
+  width: 500px;
   aspect-ratio: 1 / 1;
   border-radius: 1rem;
-  overflow: hidden;      
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  object-fit: cover;
+  overflow: hidden;
 }
 
-.photo-placeholder-inner {
-  text-align: center;
-  padding: 2rem;
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* removes the small gap below inline images */
 }
 
 .photo-icon  { font-size: 4rem; display: block; margin-bottom: 0.75rem; }
