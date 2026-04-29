@@ -295,6 +295,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: contain;
 }
 
 .photo-placeholder-inner {
