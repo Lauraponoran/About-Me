@@ -355,6 +355,7 @@ a {
   overflow: hidden;
   background: var(--surface);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 470px;
 }
 
 .project-card:hover {
