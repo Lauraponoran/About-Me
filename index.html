@@ -1,273 +1,413 @@
 <!doctype html>
 <html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
-  <style>
-    html { scroll-behavior: smooth; }
-    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .project-card { transition: transform 0.4s ease, box-shadow 0.4s ease; }
-    .project-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-    .nav-link { position: relative; }
-    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #e09f3e; transition: width 0.3s ease; }
-    .nav-link:hover::after { width: 100%; }
-    .hero-pattern { background-image: radial-gradient(circle at 20% 50%, rgba(201,203,163,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(213,122,102,0.08) 0%, transparent 50%), radial-gradient(circle at 60% 80%, rgba(95,99,79,0.08) 0%, transparent 50%); }
-    .stagger-1 { animation-delay: 0.1s; }
-    .stagger-2 { animation-delay: 0.2s; }
-    .stagger-3 { animation-delay: 0.3s; }
-    .stagger-4 { animation-delay: 0.4s; }
-    @keyframes slideIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-    .slide-in { animation: slideIn 0.8s ease forwards; opacity: 0; }
-  </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full">
-  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background-color: #fff3b0; color: #335c67; font-family: 'DM Sans', sans-serif;"><!-- Nav -->
-   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(255,225,168,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(95,99,79,0.1);">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"><a href="#hero" id="nav-name" class="text-xl font-bold" style="font-family: 'Playfair Display', serif; color: #6b0f1a;">Portfolio</a>
-     <div class="hidden md:flex gap-8"><a href="#hero" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Home</a> <a href="#about" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">About</a> <a href="#projects" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Projects</a> <a href="#contact" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Contact</a>
-     </div><button id="mobile-menu-btn" class="md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"> <i data-lucide="menu" style="color: #5f634f; width:24px; height:24px;"></i> </button>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3"><a href="#hero" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a> <a href="#about" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a> <a href="#projects" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a> <a href="#contact" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
-    </div>
-   </nav><!-- Hero -->
-   <section id="hero" class="hero-pattern min-h-screen flex items-center justify-center px-6 pt-20" style="background-color: #ffe1a8;">
-    <div class="max-w-4xl mx-auto text-center">
-     <div class="slide-in stagger-1 mb-4"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase" style="background: rgba(95,99,79,0.1); color: #5f634f;">Welcome</span>
-     </div>
-     <h1 id="hero-name" class="slide-in stagger-2 text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-6" style="font-family: 'Playfair Display', serif; color: #6b0f1a;">Alexandra<br>
-       Monroe</h1>
-     <p id="hero-tagline" class="slide-in stagger-3 text-lg sm:text-xl max-w-xl mx-auto mb-10" style="color: #5f634f; opacity: 0.8;">Designer &amp; Creative Director crafting thoughtful digital experiences</p>
-     <div class="slide-in stagger-4 flex flex-wrap gap-4 justify-center"><a href="#projects" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105" style="background: #6b0f1a; color: #ffe1a8;"> View Work <i data-lucide="arrow-down" style="width:16px; height:16px;"></i> </a> <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold border-2 transition-all duration-300 hover:scale-105" style="border-color: #5f634f; color: #5f634f;"> Get in Touch </a> <button id="download-cv-btn" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105" style="background: #d57a66; color: #ffe1a8;"> Download CV <i data-lucide="download" style="width:16px; height:16px;"></i> </button>
-     </div>
-    </div>
-   </section><!-- About -->
-   <section id="about" class="py-24 px-6" style="background-color: #5f634f;">
-    <div class="max-w-5xl mx-auto">
-     <div class="fade-up grid md:grid-cols-2 gap-16 items-center">
-      <div><span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4" style="background: rgba(255,225,168,0.15); color: #d57a66;">About</span>
-       <h2 id="about-heading" class="text-4xl sm:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif; color: #ffe1a8;">About Me</h2>
-       <p id="about-text" class="text-base leading-relaxed mb-6" style="color: rgba(255,225,168,0.8);">I'm a multidisciplinary designer with over 8 years of experience creating brands, digital products, and visual stories. I believe great design lives at the intersection of beauty and function — where every pixel has purpose and every interaction feels natural.</p>
-       <div class="flex flex-wrap gap-3"><span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">UI/UX Design</span> <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Branding</span> <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Creative Direction</span> <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Typography</span>
-       </div>
-      </div>
-      <div class="relative">
-       <div class="aspect-square rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(213,122,102,0.3), rgba(201,203,163,0.2));">
-        <div class="text-center p-8">
-         <div class="text-6xl mb-4">
-          ✦
-         </div>
-         <p class="text-sm font-medium" style="color: #ffe1a8; opacity: 0.7;">Your photo here</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body class="h-full">
+    <div id="app-wrapper" class="w-full h-full overflow-auto" style="background-color: #ffe1a8; color: #335c67; font-family: 'DM Sans', sans-serif; font-size: 16px;">
+
+      <!-- ===== Navigation ===== -->
+      <nav id="main-nav" style="background: rgba(255,225,168,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(95,99,79,0.1);">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <a href="#hero" id="nav-name" class="text-xl font-bold"
+             style="font-family: 'Playfair Display', serif; color: #6b0f1a;">
+            Portfolio
+          </a>
+
+          <!-- Desktop links -->
+          <div class="hidden md:flex gap-8">
+            <a href="#hero"     class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Home</a>
+            <a href="#about"    class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">About</a>
+            <a href="#projects" class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Projects</a>
+            <a href="#contact"  class="nav-link text-sm font-medium tracking-wide uppercase" style="color: #5f634f;">Contact</a>
+          </div>
+
+          <!-- Mobile hamburger -->
+          <button id="mobile-menu-btn" class="md:hidden"
+                  onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i data-lucide="menu" style="color: #5f634f; width:24px; height:24px;"></i>
+          </button>
         </div>
-       </div>
-       <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-xl flex items-center justify-center" style="background: #d57a66;"><span class="text-2xl font-bold" style="color: #ffe1a8; font-family: 'Playfair Display', serif;">8+</span>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Projects -->
-   <section id="projects" class="py-24 px-6" style="background-color: #ffe1a8;">
-    <div class="max-w-6xl mx-auto">
-     <div class="fade-up text-center mb-16"><span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4" style="background: rgba(95,99,79,0.1); color: #5f634f;">Portfolio</span>
-      <h2 id="projects-heading" class="text-4xl sm:text-5xl font-bold" style="font-family: 'Playfair Display', serif; color: #6b0f1a;">Selected Work</h2>
-     </div>
-     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
-       <div class="aspect-[4/3] flex items-center justify-center" style="background: linear-gradient(135deg, #6b0f1a, #9e2a2b);"><span class="text-5xl">◆</span>
-       </div>
-       <div class="p-6"><span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">Branding</span>
-        <h3 class="text-lg font-bold mt-1 mb-2" style="color: #ffe1a8; font-family: 'Playfair Display', serif;">Lumina Studio</h3>
-        <p class="text-sm" style="color: rgba(255,225,168,0.6);">Brand identity for a creative photography studio</p>
-       </div>
-      </div>
-      <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
-       <div class="aspect-[4/3] flex items-center justify-center" style="background: linear-gradient(135deg, #d57a66, #ffe1a8);"><span class="text-5xl" style="color: #6b0f1a;">▲</span>
-       </div>
-       <div class="p-6"><span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">Web Design</span>
-        <h3 class="text-lg font-bold mt-1 mb-2" style="color: #ffe1a8; font-family: 'Playfair Display', serif;">Apex Digital</h3>
-        <p class="text-sm" style="color: rgba(255,225,168,0.6);">Marketing website for a tech startup</p>
-       </div>
-      </div>
-      <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
-       <div class="aspect-[4/3] flex items-center justify-center" style="background: linear-gradient(135deg, #5f634f, #6b0f1a);"><span class="text-5xl" style="color: #d57a66;">●</span>
-       </div>
-       <div class="p-6"><span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">App Design</span>
-        <h3 class="text-lg font-bold mt-1 mb-2" style="color: #ffe1a8; font-family: 'Playfair Display', serif;">Mindful</h3>
-        <p class="text-sm" style="color: rgba(255,225,168,0.6);">Meditation app with a focus on simplicity</p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Contact -->
-   <section id="contact" class="py-24 px-6" style="background-color: #6b0f1a;">
-    <div class="max-w-3xl mx-auto text-center">
-     <div class="fade-up"><span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4" style="background: rgba(224,159,62,0.2); color: #e09f3e;">Contact</span>
-      <h2 id="contact-heading" class="text-4xl sm:text-5xl font-bold mb-4" style="font-family: 'Playfair Display', serif; color: #fff3b0;">Let's Work Together</h2>
-      <p id="contact-text" class="text-base mb-12" style="color: rgba(255,243,176,0.7);">Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing.</p>
-      <form id="contact-form" class="text-left space-y-5 max-w-lg mx-auto">
-       <div><label for="name" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Name</label> <input id="name" type="text" placeholder="Your name" class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm" style="background: rgba(255,243,176,0.1); color: #fff3b0;" onfocus="this.style.boxShadow='0 0 0 2px #e09f3e'" onblur="this.style.boxShadow='none'">
-       </div>
-       <div><label for="email" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Email</label> <input id="email" type="email" placeholder="your@email.com" class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm" style="background: rgba(255,243,176,0.1); color: #fff3b0;" onfocus="this.style.boxShadow='0 0 0 2px #e09f3e'" onblur="this.style.boxShadow='none'">
-       </div>
-       <div><label for="message" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Message</label> <textarea id="message" rows="4" placeholder="Tell me about your project..." class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm resize-none" style="background: rgba(255,243,176,0.1); color: #fff3b0;" onfocus="this.style.boxShadow='0 0 0 2px #e09f3e'" onblur="this.style.boxShadow='none'"></textarea>
-       </div><button type="submit" class="w-full py-4 rounded-xl text-sm font-bold tracking-wide uppercase transition-all duration-300 hover:scale-[1.02]" style="background: #e09f3e; color: #540b0e;"> Send Message </button>
-       <p id="form-success" class="hidden text-center text-sm font-medium pt-2" style="color: #e09f3e;">✓ Message sent! I'll get back to you soon.</p>
-      </form>
-     </div>
-    </div>
-   </section><!-- Footer -->
-   <footer class="py-8 px-6 text-center" style="background: #540b0e; border-top: 1px solid rgba(224,159,62,0.15);">
-    <div class="flex justify-center gap-6 mb-4"><a href="#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><i data-lucide="twitter" style="width:20px; height:20px;"></i></a> <a href="#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><i data-lucide="linkedin" style="width:20px; height:20px;"></i></a> <a href="#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><i data-lucide="instagram" style="width:20px; height:20px;"></i></a> <a href="#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><i data-lucide="github" style="width:20px; height:20px;"></i></a>
-    </div>
-    <p class="text-xs" style="color: rgba(255,243,176,0.4);">© 2024 Alexandra Monroe. All rights reserved.</p>
-   </footer>
-  </div>
-  <script>
-  const defaultConfig = {
-    background_color: '#ffe1a8',
-    surface_color: '#5f634f',
-    text_color: '#ffe1a8',
-    primary_action_color: '#6b0f1a',
-    secondary_action_color: '#d57a66',
-    font_family: 'Playfair Display',
-    font_size: 16,
-    hero_name: 'Alexandra\nMonroe',
-    hero_tagline: 'Designer & Creative Director crafting thoughtful digital experiences',
-    about_heading: 'About Me',
-    about_text: "I'm a multidisciplinary designer with over 8 years of experience creating brands, digital products, and visual stories. I believe great design lives at the intersection of beauty and function — where every pixel has purpose and every interaction feels natural.",
-    projects_heading: 'Selected Work',
-    contact_heading: "Let's Work Together",
-    contact_text: "Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing."
-  };
 
-  function applyConfig(config) {
-    const c = key => config[key] || defaultConfig[key];
-    const bg = c('background_color');
-    const surface = c('surface_color');
-    const text = c('text_color');
-    const primary = c('primary_action_color');
-    const secondary = c('secondary_action_color');
-    const font = c('font_family');
-    const baseSize = c('font_size');
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3">
+          <a href="#hero"     class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+          <a href="#about"    class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+          <a href="#projects" class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a>
+          <a href="#contact"  class="text-sm font-medium" style="color: #5f634f;" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+        </div>
+      </nav>
 
-    // Background colors
-    document.getElementById('app-wrapper').style.backgroundColor = bg;
-    document.getElementById('hero').style.backgroundColor = bg;
-    document.getElementById('projects').style.backgroundColor = bg;
+      <!-- ===== Hero ===== -->
+      <section id="hero" class="hero-pattern min-h-screen flex items-center justify-center px-6 pt-20" style="background-color: #ffe1a8;">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="slide-in stagger-1 mb-4">
+            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase"
+                  style="background: rgba(95,99,79,0.1); color: #5f634f;">
+              Welcome
+            </span>
+          </div>
 
-    // Surface sections
-    document.getElementById('about').style.backgroundColor = surface;
+          <h1 id="hero-name"
+              class="slide-in stagger-2 text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-6"
+              style="font-family: 'Playfair Display', serif; color: #540b0e; font-size: 64px;">
+            Alexandra<br>Monroe
+          </h1>
 
-    // Dark sections
-    document.getElementById('contact').style.backgroundColor = '#540b0e';
+          <p id="hero-tagline"
+             class="slide-in stagger-3 text-lg sm:text-xl max-w-xl mx-auto mb-10"
+             style="color: #5f634f; opacity: 0.8;">
+            Designer &amp; Creative Director crafting thoughtful digital experiences
+          </p>
 
-    // Nav
-    const nav = document.getElementById('main-nav');
-    nav.style.background = bg + 'f2';
+          <div class="slide-in stagger-4 flex flex-wrap gap-4 justify-center">
+            <a href="#projects"
+               class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
+               style="background: #6b0f1a; color: #ffe1a8;">
+              View Work <i data-lucide="arrow-down" style="width:16px; height:16px;"></i>
+            </a>
+            <a href="#contact"
+               class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold border-2 transition-all duration-300 hover:scale-105"
+               style="border-color: #5f634f; color: #5f634f;">
+              Get in Touch
+            </a>
+            <button id="download-cv-btn"
+                    class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
+                    style="background: #d57a66; color: #ffe1a8;">
+              Download CV <i data-lucide="download" style="width:16px; height:16px;"></i>
+            </button>
+          </div>
+        </div>
+      </section>
 
-    // Hero text
-    const heroNameEl = document.getElementById('hero-name');
-    const nameText = c('hero_name');
-    heroNameEl.innerHTML = nameText.replace(/\n/g, '<br>');
-    heroNameEl.style.color = '#540b0e';
-    heroNameEl.style.fontFamily = `${font}, serif`;
-    heroNameEl.style.fontSize = `${baseSize * 4}px`;
+      <!-- ===== About ===== -->
+      <section id="about" class="py-24 px-6" style="background-color: #5f634f;">
+        <div class="max-w-5xl mx-auto">
+          <div class="fade-up grid md:grid-cols-2 gap-16 items-center">
 
-    document.getElementById('hero-tagline').textContent = c('hero_tagline');
-    document.getElementById('hero-tagline').style.color = surface;
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
+                    style="background: rgba(255,225,168,0.15); color: #d57a66;">
+                About
+              </span>
+              <h2 id="about-heading"
+                  class="text-4xl sm:text-5xl font-bold mb-6"
+                  style="font-family: 'Playfair Display', serif; color: #ffe1a8; font-size: 40px;">
+                About Me
+              </h2>
+              <p id="about-text" class="text-base leading-relaxed mb-6"
+                 style="color: rgba(255,225,168,0.8);">
+                I'm a multidisciplinary designer with over 8 years of experience creating brands, digital
+                products, and visual stories. I believe great design lives at the intersection of beauty and
+                function — where every pixel has purpose and every interaction feels natural.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">UI/UX Design</span>
+                <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Branding</span>
+                <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Creative Direction</span>
+                <span class="px-4 py-2 rounded-full text-xs font-medium" style="background: rgba(213,122,102,0.2); color: #d57a66;">Typography</span>
+              </div>
+            </div>
 
-    // About
-    const aboutH = document.getElementById('about-heading');
-    aboutH.textContent = c('about_heading');
-    aboutH.style.color = text;
-    aboutH.style.fontFamily = `${font}, serif`;
-    aboutH.style.fontSize = `${baseSize * 2.5}px`;
+            <div class="relative">
+              <div class="aspect-square rounded-2xl flex items-center justify-center"
+                   style="background: linear-gradient(135deg, rgba(213,122,102,0.3), rgba(201,203,163,0.2));">
+                <div class="text-center p-8">
+                  <div class="text-6xl mb-4">✦</div>
+                  <p class="text-sm font-medium" style="color: #ffe1a8; opacity: 0.7;">Your photo here</p>
+                </div>
+              </div>
+              <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-xl flex items-center justify-center"
+                   style="background: #d57a66;">
+                <span class="text-2xl font-bold"
+                      style="color: #ffe1a8; font-family: 'Playfair Display', serif;">8+</span>
+              </div>
+            </div>
 
-    document.getElementById('about-text').textContent = c('about_text');
-    document.getElementById('about-text').style.color = `${text}cc`;
+          </div>
+        </div>
+      </section>
 
-    // Projects
-    const projH = document.getElementById('projects-heading');
-    projH.textContent = c('projects_heading');
-    projH.style.color = '#540b0e';
-    projH.style.fontFamily = `${font}, serif`;
-    projH.style.fontSize = `${baseSize * 2.5}px`;
+      <!-- ===== Projects ===== -->
+      <section id="projects" class="py-24 px-6" style="background-color: #ffe1a8;">
+        <div class="max-w-6xl mx-auto">
 
-    // Contact
-    const contH = document.getElementById('contact-heading');
-    contH.textContent = c('contact_heading');
-    contH.style.color = text;
-    contH.style.fontFamily = `${font}, serif`;
-    contH.style.fontSize = `${baseSize * 2.5}px`;
+          <div class="fade-up text-center mb-16">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
+                  style="background: rgba(95,99,79,0.1); color: #5f634f;">
+              Portfolio
+            </span>
+            <h2 id="projects-heading"
+                class="text-4xl sm:text-5xl font-bold"
+                style="font-family: 'Playfair Display', serif; color: #540b0e; font-size: 40px;">
+              Selected Work
+            </h2>
+          </div>
 
-    document.getElementById('contact-text').textContent = c('contact_text');
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    // Primary action buttons
-    document.querySelectorAll('[href="#projects"]').forEach(el => {
-      if (el.closest('#hero')) { el.style.backgroundColor = primary; el.style.color = bg; }
-    });
+            <!-- Card 1 -->
+            <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
+              <div class="aspect-[4/3] flex items-center justify-center"
+                   style="background: linear-gradient(135deg, #6b0f1a, #9e2a2b);">
+                <span class="text-5xl">◆</span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">Branding</span>
+                <h3 class="text-lg font-bold mt-1 mb-2"
+                    style="color: #ffe1a8; font-family: 'Playfair Display', serif;">Lumina Studio</h3>
+                <p class="text-sm" style="color: rgba(255,225,168,0.6);">Brand identity for a creative photography studio</p>
+              </div>
+            </div>
 
-    // Secondary action
-    const submitBtn = document.querySelector('#contact-form button');
-    if (submitBtn) { submitBtn.style.backgroundColor = secondary; submitBtn.style.color = '#540b0e'; }
+            <!-- Card 2 -->
+            <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
+              <div class="aspect-[4/3] flex items-center justify-center"
+                   style="background: linear-gradient(135deg, #d57a66, #ffe1a8);">
+                <span class="text-5xl" style="color: #6b0f1a;">▲</span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">Web Design</span>
+                <h3 class="text-lg font-bold mt-1 mb-2"
+                    style="color: #ffe1a8; font-family: 'Playfair Display', serif;">Apex Digital</h3>
+                <p class="text-sm" style="color: rgba(255,225,168,0.6);">Marketing website for a tech startup</p>
+              </div>
+            </div>
 
-    // Nav name
-    document.getElementById('nav-name').style.fontFamily = `${font}, serif`;
+            <!-- Card 3 -->
+            <div class="fade-up project-card rounded-2xl overflow-hidden" style="background: #5f634f;">
+              <div class="aspect-[4/3] flex items-center justify-center"
+                   style="background: linear-gradient(135deg, #5f634f, #6b0f1a);">
+                <span class="text-5xl" style="color: #d57a66;">●</span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-semibold tracking-wide uppercase" style="color: #d57a66;">App Design</span>
+                <h3 class="text-lg font-bold mt-1 mb-2"
+                    style="color: #ffe1a8; font-family: 'Playfair Display', serif;">Mindful</h3>
+                <p class="text-sm" style="color: rgba(255,225,168,0.6);">Meditation app with a focus on simplicity</p>
+              </div>
+            </div>
 
-    // Body font
-    document.getElementById('app-wrapper').style.fontFamily = `'DM Sans', sans-serif`;
-    document.getElementById('app-wrapper').style.fontSize = `${baseSize}px`;
-  }
+          </div>
+        </div>
+      </section>
 
-  // Element SDK
-  window.elementSdk.init({
-    defaultConfig,
-    onConfigChange: async (config) => applyConfig(config),
-    mapToCapabilities: (config) => ({
-      recolorables: [
-        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-        { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
-        { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
-      ],
-      borderables: [],
-      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
-      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
-    }),
-    mapToEditPanelValues: (config) => new Map([
-      ['hero_name', config.hero_name || defaultConfig.hero_name],
-      ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
-      ['about_heading', config.about_heading || defaultConfig.about_heading],
-      ['about_text', config.about_text || defaultConfig.about_text],
-      ['projects_heading', config.projects_heading || defaultConfig.projects_heading],
-      ['contact_heading', config.contact_heading || defaultConfig.contact_heading],
-      ['contact_text', config.contact_text || defaultConfig.contact_text]
-    ])
-  });
+      <!-- ===== Contact ===== -->
+      <section id="contact" class="py-24 px-6" style="background-color: #6b0f1a;">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="fade-up">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
+                  style="background: rgba(224,159,62,0.2); color: #e09f3e;">
+              Contact
+            </span>
+            <h2 id="contact-heading"
+                class="text-4xl sm:text-5xl font-bold mb-4"
+                style="font-family: 'Playfair Display', serif; color: #ffe1a8; font-size: 40px;">
+              Let's Work Together
+            </h2>
+            <p id="contact-text" class="text-base mb-12" style="color: rgba(255,243,176,0.7);">
+              Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing.
+            </p>
 
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+            <form id="contact-form" class="text-left space-y-5 max-w-lg mx-auto">
+              <div>
+                <label for="name" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Name</label>
+                <input id="name" type="text" placeholder="Your name"
+                       class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm"
+                       style="background: rgba(255,243,176,0.1); color: #fff3b0;"
+                       onfocus="this.style.boxShadow='0 0 0 2px #e09f3e'"
+                       onblur="this.style.boxShadow='none'">
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Email</label>
+                <input id="email" type="email" placeholder="your@email.com"
+                       class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm"
+                       style="background: rgba(255,243,176,0.1); color: #fff3b0;"
+                       onfocus="this.style.boxShadow='0 0 0 2px #e09f3e'"
+                       onblur="this.style.boxShadow='none'">
+              </div>
+              <div>
+                <label for="message" class="block text-xs font-semibold tracking-wide uppercase mb-2" style="color: #e09f3e;">Message</label>
+                <textarea id="message" rows="4" placeholder="Tell me about your project..."
+                          class="w-full px-5 py-3.5 rounded-xl border-0 outline-none text-sm resize-none"
+                          style="background: rgba(255,243,176,0.1); color: #fff3b0;"
+                          onfocus="this.style.boxShadow='0 0 0 2px #e09f3e'"
+                          onblur="this.style.boxShadow='none'"></textarea>
+              </div>
+              <button type="submit"
+                      class="w-full py-4 rounded-xl text-sm font-bold tracking-wide uppercase transition-all duration-300 hover:scale-[1.02]"
+                      style="background: #e09f3e; color: #540b0e;">
+                Send Message
+              </button>
+              <p id="form-success" class="hidden text-center text-sm font-medium pt-2" style="color: #e09f3e;">
+                ✓ Message sent! I'll get back to you soon.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
 
-  // Form
-  document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    document.getElementById('form-success').classList.remove('hidden');
-    e.target.reset();
-    setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 4000);
-  });
+      <!-- ===== Footer ===== -->
+      <footer class="py-8 px-6 text-center"
+              style="background: #540b0e; border-top: 1px solid rgba(224,159,62,0.15);">
+        <div class="flex justify-center gap-6 mb-4">
+          <a href="#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><i data-lucide="twitter"   style="width:20px; height:20px;"></i></a>
+          <a href="#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><i data-lucide="linkedin"  style="width:20px; height:20px;"></i></a>
+          <a href="#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><i data-lucide="instagram" style="width:20px; height:20px;"></i></a>
+          <a href="#" class="transition-colors duration-300 hover:opacity-80" style="color: #e09f3e;"><i data-lucide="github"    style="width:20px; height:20px;"></i></a>
+        </div>
+        <p class="text-xs" style="color: rgba(255,243,176,0.4);">© 2024 Alexandra Monroe. All rights reserved.</p>
+      </footer>
 
-  lucide.createIcons();
-</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f3bebd515a20a4f',t:'MTc3NzQ0MDY5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    </div><!-- /#app-wrapper -->
+
+    <script>
+      /* ============================================================
+         Configuration & Element SDK
+         ============================================================ */
+      const defaultConfig = {
+        background_color:       '#ffe1a8',
+        surface_color:          '#5f634f',
+        text_color:             '#ffe1a8',
+        primary_action_color:   '#6b0f1a',
+        secondary_action_color: '#d57a66',
+        font_family:  'Playfair Display',
+        font_size:    16,
+        hero_name:    'Alexandra\nMonroe',
+        hero_tagline: 'Designer & Creative Director crafting thoughtful digital experiences',
+        about_heading:   'About Me',
+        about_text:      "I'm a multidisciplinary designer with over 8 years of experience creating brands, digital products, and visual stories. I believe great design lives at the intersection of beauty and function — where every pixel has purpose and every interaction feels natural.",
+        projects_heading: 'Selected Work',
+        contact_heading:  "Let's Work Together",
+        contact_text:     "Have a project in mind? I'd love to hear about it. Drop me a message and let's create something amazing."
+      };
+
+      function applyConfig(config) {
+        const c   = key => config[key] || defaultConfig[key];
+        const bg        = c('background_color');
+        const surface   = c('surface_color');
+        const text      = c('text_color');
+        const primary   = c('primary_action_color');
+        const secondary = c('secondary_action_color');
+        const font      = c('font_family');
+        const baseSize  = c('font_size');
+
+        document.getElementById('app-wrapper').style.backgroundColor = bg;
+        document.getElementById('hero').style.backgroundColor        = bg;
+        document.getElementById('projects').style.backgroundColor    = bg;
+        document.getElementById('about').style.backgroundColor       = surface;
+        document.getElementById('contact').style.backgroundColor     = '#540b0e';
+
+        document.getElementById('main-nav').style.background = bg + 'f2';
+
+        const heroNameEl = document.getElementById('hero-name');
+        heroNameEl.innerHTML    = c('hero_name').replace(/\n/g, '<br>');
+        heroNameEl.style.color      = '#540b0e';
+        heroNameEl.style.fontFamily = `${font}, serif`;
+        heroNameEl.style.fontSize   = `${baseSize * 4}px`;
+
+        document.getElementById('hero-tagline').textContent = c('hero_tagline');
+        document.getElementById('hero-tagline').style.color = surface;
+
+        const aboutH = document.getElementById('about-heading');
+        aboutH.textContent      = c('about_heading');
+        aboutH.style.color      = text;
+        aboutH.style.fontFamily = `${font}, serif`;
+        aboutH.style.fontSize   = `${baseSize * 2.5}px`;
+
+        document.getElementById('about-text').textContent = c('about_text');
+        document.getElementById('about-text').style.color = `${text}cc`;
+
+        const projH = document.getElementById('projects-heading');
+        projH.textContent      = c('projects_heading');
+        projH.style.color      = '#540b0e';
+        projH.style.fontFamily = `${font}, serif`;
+        projH.style.fontSize   = `${baseSize * 2.5}px`;
+
+        const contH = document.getElementById('contact-heading');
+        contH.textContent      = c('contact_heading');
+        contH.style.color      = text;
+        contH.style.fontFamily = `${font}, serif`;
+        contH.style.fontSize   = `${baseSize * 2.5}px`;
+
+        document.getElementById('contact-text').textContent = c('contact_text');
+
+        document.querySelectorAll('[href="#projects"]').forEach(el => {
+          if (el.closest('#hero')) { el.style.backgroundColor = primary; el.style.color = bg; }
+        });
+
+        const submitBtn = document.querySelector('#contact-form button');
+        if (submitBtn) { submitBtn.style.backgroundColor = secondary; submitBtn.style.color = '#540b0e'; }
+
+        document.getElementById('nav-name').style.fontFamily          = `${font}, serif`;
+        document.getElementById('app-wrapper').style.fontFamily       = `'DM Sans', sans-serif`;
+        document.getElementById('app-wrapper').style.fontSize         = `${baseSize}px`;
+      }
+
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => applyConfig(config),
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            { get: () => config.background_color       || defaultConfig.background_color,       set: (v) => { config.background_color       = v; window.elementSdk.setConfig({ background_color: v }); } },
+            { get: () => config.surface_color          || defaultConfig.surface_color,          set: (v) => { config.surface_color          = v; window.elementSdk.setConfig({ surface_color: v }); } },
+            { get: () => config.text_color             || defaultConfig.text_color,             set: (v) => { config.text_color             = v; window.elementSdk.setConfig({ text_color: v }); } },
+            { get: () => config.primary_action_color   || defaultConfig.primary_action_color,   set: (v) => { config.primary_action_color   = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+            { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+          ],
+          borderables: [],
+          fontEditable:  { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+          fontSizeable:  { get: () => config.font_size   || defaultConfig.font_size,   set: (v) => { config.font_size   = v; window.elementSdk.setConfig({ font_size: v }); } }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['hero_name',        config.hero_name        || defaultConfig.hero_name],
+          ['hero_tagline',     config.hero_tagline     || defaultConfig.hero_tagline],
+          ['about_heading',    config.about_heading    || defaultConfig.about_heading],
+          ['about_text',       config.about_text       || defaultConfig.about_text],
+          ['projects_heading', config.projects_heading || defaultConfig.projects_heading],
+          ['contact_heading',  config.contact_heading  || defaultConfig.contact_heading],
+          ['contact_text',     config.contact_text     || defaultConfig.contact_text]
+        ])
+      });
+
+      /* ============================================================
+         Scroll animations
+         ============================================================ */
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+      /* ============================================================
+         Contact form
+         ============================================================ */
+      document.getElementById('contact-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        document.getElementById('form-success').classList.remove('hidden');
+        e.target.reset();
+        setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 4000);
+      });
+
+      /* Lucide icons */
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
