@@ -219,8 +219,6 @@
       if (form) {
         form.addEventListener('submit', () => {
           msg.classList.add('visible');
-
-          // optional: hide again after a few seconds
           setTimeout(() => msg.classList.remove('visible'), 4000);
         });
       }
