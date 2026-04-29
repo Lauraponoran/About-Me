@@ -86,8 +86,8 @@
           <span class="section-badge badge-about">About</span>
           <h2 class="section-heading heading-light">About Me</h2>
           <p class="about-text">
-            I'm a Computational Social Science Student at the University of Amsterdam who's been working with TAPP, a Smart City 
-            Architecture Firm to design technological solutions for real world insights. I enjoy engaging with data, digital design,
+            I'm a Computational Social Science Student at the University of Amsterdam who's been working with TAPP- a Smart City 
+            Architecture Firm- to design technological solutions for real world insights. I enjoy engaging with data, digital design,
             and collaborating with others.
           </p>
           <div class="tag-list">
@@ -212,14 +212,18 @@
 
       document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-      /* ----- Contact form ----- */
-      document.getElementById('contact-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const msg = document.getElementById('form-success');
-        msg.classList.add('visible');
-        e.target.reset();
-        setTimeout(() => msg.classList.remove('visible'), 4000);
-      });
+      /* ----- Contact form (Formspree compatible) ----- */
+      const form = document.getElementById('contact-form');
+      const msg = document.getElementById('form-success');
+
+      if (form) {
+        form.addEventListener('submit', () => {
+          msg.classList.add('visible');
+
+          // optional: hide again after a few seconds
+          setTimeout(() => msg.classList.remove('visible'), 4000);
+        });
+      }
     </script>
 
   </body>

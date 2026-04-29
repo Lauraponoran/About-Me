@@ -288,7 +288,7 @@ a {
 }
 
 .photo-placeholder {
-  width: 200px;          
+  width: 1024px;          
   aspect-ratio: 1 / 1;
   border-radius: 1rem;
   overflow: hidden;      
