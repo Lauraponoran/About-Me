@@ -343,7 +343,7 @@ a {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: stretch;
 }
@@ -352,7 +352,6 @@ a {
   flex-direction: column;
 }
 
-@media (max-width: 1023px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 639px)  { .projects-grid { grid-template-columns: 1fr; } }
 
 .project-card-link {
@@ -394,6 +393,7 @@ a {
 .thumb-1 { background: linear-gradient(135deg, #6b0f1a, #9e2a2b); }
 .thumb-2 { background: linear-gradient(135deg, #d57a66, #ffe1a8); color: var(--dark); }
 .thumb-3 { background: linear-gradient(135deg, #5f634f, #6b0f1a); color: var(--accent); }
+.thumb-4 { background: linear-gradient(135deg, #9e2a2b, #e09f3e); color: var(--bg); }
 
 .project-body {
   padding: 1.5rem;
